@@ -1,0 +1,8 @@
+transformers
+pandas
+beautifulsoup4
+requests
+zipline-reloaded
+Flask
+yfinance
+matplotlib
