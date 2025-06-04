@@ -1,8 +1,8 @@
-# 🧠 FinSentiment Alpha
+# FinSentiment Alpha
 
 **Extracting Alpha from Financial Language with NLP**
 
-## 🚀 Overview
+##  Overview
 This project uses **FinBERT** to analyze earnings reports and financial news for sentiment signals, then trades based on those signals using a long-short equity strategy.
 
 ## 🔍 Features
@@ -11,18 +11,18 @@ This project uses **FinBERT** to analyze earnings reports and financial news for
 - Builds and backtests strategy in Zipline
 - Deploys real-time sentiment scores via Flask API
 
-## 📈 Result
+## Result
 - Strategy outperforms S&P 500 with 1.8 Sharpe and 10% alpha.
 
-## 📦 Tech Stack
+##  Tech Stack
 Python, HuggingFace, FinBERT, Zipline, Flask, yfinance, NewsAPI
 
-## 🛠️ Installation
+##  Installation
 ```bash
 pip install -r requirements.txt
 ```
 
-## 📊 Example API Call
+##  Example API Call
 ```bash
 curl http://localhost:5000/sentiment?symbol=TSLA
 ```
