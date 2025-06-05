@@ -6,3 +6,4 @@ zipline-reloaded
 Flask
 yfinance
 matplotlib
+gunicorn
