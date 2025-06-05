@@ -123,3 +123,7 @@ Werkzeug==3.0.4
 wheel==0.44.0
 zope.event==5.0
 zope.interface==7.0.3
+flask
+transformers
+torch
+gunicorn

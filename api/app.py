@@ -1,19 +1,29 @@
 # Flask API to serve sentiment scores
 from flask import Flask, request, jsonify
-import os
+from transformers import pipeline
+import torch
 
 app = Flask(__name__)
 
-@app.route('/')
+# Load FinBERT sentiment model
+sentiment_pipeline = pipeline(
+    "sentiment-analysis",
+    model="ProsusAI/finbert",
+    tokenizer="ProsusAI/finbert"
+)
+
+@app.route("/")
 def home():
-    return "FinSentiment Alpha API is running!"
+    return "✅ FinSentiment Alpha is running. Try /sentiment?text=Tesla+beats+earnings"
 
-@app.route('/sentiment')
-def sentiment():
-    symbol = request.args.get("symbol", "AAPL")
-    # Placeholder response
-    return jsonify({"symbol": symbol, "sentiment": "positive"})
+@app.route("/sentiment", methods=["GET"])
+def analyze_sentiment():
+    text = request.args.get("text")
+    if not text:
+        return jsonify({"error": "No text provided."}), 400
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    try:
+        result = sentiment_pipeline(text)
+        return jsonify({"text": text, "sentiment": result})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
