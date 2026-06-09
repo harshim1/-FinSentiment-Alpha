@@ -87,7 +87,8 @@ curl http://localhost:5000/sentiment?symbol=TSLA
 ```
 
 Author
-  Built with 💡 by Harshim Saluja
-  Feel free to star ⭐ the repo if you find it useful!
+  by Harshim Saluja
+
+
 
 
